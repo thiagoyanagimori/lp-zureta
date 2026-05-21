@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Buffet Zureta – Buffet infantil premium em Osasco desde 2006. Atrações, gastronomia completa e ambiente seguro para festas inesquecíveis.">
+<title>Buffet Zureta | Festas Infantis Premium em Osasco</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --clr-red:    #C0392B;
+  --clr-orange: #CC1F1F;
+  --clr-amber:  #E8A020;
+  --clr-yellow: #F5C800;
+  --clr-yellow-pale: #FFF9D6;
+  --clr-bg:     #FAFAF8;
+  --clr-white:  #FFFFFF;
+  --clr-ink:    #1C1C1C;
+  --clr-muted:  #6B6B6B;
+  --clr-soft:   #F5F0EA;
+  --clr-line:   rgba(0,0,0,0.09);
+  --ff-display: 'Cormorant Garamond', Georgia, serif;
+  --ff-body:    'Poppins', sans-serif;
+  --max: 1160px;
+  --radius: 16px;
+  --radius-lg: 28px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:var(--ff-body);background:var(--clr-bg);color:var(--clr-ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+.container{max-width:var(--max);margin:0 auto;padding:0 32px;}
+.label{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--clr-orange);margin-bottom:14px;}
+h2.display{font-family:var(--ff-display);font-size:clamp(34px,5vw,56px);font-weight:700;line-height:1.12;color:var(--clr-ink);letter-spacing:-0.5px;}
+h2.display em{font-style:italic;color:var(--clr-orange);}
+.body-lg{font-size:17px;line-height:1.75;color:var(--clr-muted);max-width:540px;}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;border-radius:50px;font-family:var(--ff-body);font-size:14px;font-weight:600;letter-spacing:0.3px;cursor:pointer;text-decoration:none;border:none;transition:transform .25s ease,box-shadow .25s ease;}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:var(--clr-orange);color:#fff;box-shadow:0 6px 24px rgba(204,31,31,.28);}
+.btn-primary:hover{box-shadow:0 12px 36px rgba(204,31,31,.38);}
+.btn-wa{background:#25D366;color:#fff;box-shadow:0 6px 24px rgba(37,211,102,.28);}
+.btn-wa:hover{box-shadow:0 12px 36px rgba(37,211,102,.38);}
+.btn-outline{background:transparent;color:var(--clr-ink);border:1.5px solid rgba(0,0,0,.18);}
+.btn-outline:hover{border-color:var(--clr-orange);color:var(--clr-orange);background:rgba(204,31,31,.04);}
+.photo{background-color:#D9CFC7;background-size:cover;background-position:center;display:block;width:100%;height:100%;}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s ease,box-shadow .35s ease;}
+.nav.stuck{background:rgba(255,255,255,.96);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--clr-line),0 4px 24px rgba(0,0,0,.06);}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 32px;height:76px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo img{height:54px;width:auto;display:block;}
+.nav:not(.stuck) .nav-logo img{mix-blend-mode:normal;filter:none;}
+.nav.stuck .nav-logo img{mix-blend-mode:normal;filter:none;}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none;}
+.nav-links a{font-size:13px;font-weight:500;color:var(--clr-ink);text-decoration:none;opacity:.72;transition:opacity .2s;}
+.nav-links a:hover{opacity:1;}
+.nav-links .nav-cta{opacity:1;}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--clr-ink);border-radius:2px;transition:all .3s;}
+.mob-overlay{display:none;position:fixed;inset:0;background:#fff;z-index:99;flex-direction:column;padding:96px 32px 48px;gap:4px;}
+.mob-overlay.open{display:flex;}
+.mob-overlay a{font-size:22px;font-weight:600;color:var(--clr-ink);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--clr-line);}
+.mob-cta{margin-top:28px!important;border:none!important;background:var(--clr-orange)!important;color:#fff!important;border-radius:50px!important;text-align:center;padding:18px!important;font-size:15px!important;}
+
+/* HERO */
+.hero{padding-top:76px;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 64px 80px 32px;max-width:620px;margin-left:auto;}
+.hero-meta{display:flex;align-items:center;gap:20px;margin-bottom:28px;flex-wrap:wrap;}
+.hero-pill{display:inline-flex;align-items:center;gap:7px;background:var(--clr-yellow-pale);border:1px solid rgba(245,200,0,.35);padding:7px 14px;border-radius:50px;font-size:12px;font-weight:600;color:var(--clr-muted);letter-spacing:.3px;}
+.hero-dot{width:7px;height:7px;border-radius:50%;background:var(--clr-yellow);display:inline-block;flex-shrink:0;}
+.hero h1{font-family:var(--ff-display);font-size:clamp(40px,5.5vw,66px);font-weight:700;line-height:1.08;letter-spacing:-1px;color:var(--clr-ink);margin-bottom:22px;}
+.hero h1 em{font-style:italic;color:var(--clr-orange);}
+.hero-sub{font-size:16.5px;line-height:1.72;color:var(--clr-muted);margin-bottom:40px;max-width:460px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px;}
+.hero-trust{display:flex;align-items:center;gap:32px;padding-top:32px;border-top:1px solid var(--clr-line);flex-wrap:wrap;}
+.trust-stat strong{display:block;font-size:22px;font-weight:700;color:var(--clr-yellow);line-height:1;margin-bottom:3px;text-shadow:0 1px 3px rgba(0,0,0,.08);}
+.trust-stat span{font-size:12px;color:var(--clr-muted);}
+.trust-divider{width:1px;height:36px;background:var(--clr-line);}
+.hero-right{position:relative;overflow:hidden;}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(250,250,248,0.18) 0%,transparent 30%,transparent 70%,rgba(250,250,248,0.18) 100%);pointer-events:none;}
+.hero-img-wrap{position:absolute;inset:0;}
+.hero-img-wrap .photo{height:100%;}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(250,250,248,1) 0%,rgba(250,250,248,0.55) 18%,rgba(250,250,248,0) 42%);}
+
+/* STRIP */
+.strip{background:var(--clr-yellow);padding:14px 0;overflow:hidden;white-space:nowrap;}
+.strip-track{display:inline-flex;animation:ticker 28s linear infinite;}
+.strip-track span{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(20,10,0,.75);padding:0 40px;border-right:1px solid rgba(0,0,0,.15);}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* SOBRE */
+.sobre{padding:120px 0;background:var(--clr-white);}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.sobre-imgs{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.sobre-img-tall{grid-row:span 2;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:3/4;}
+.sobre-img-sq{border-radius:var(--radius);overflow:hidden;aspect-ratio:1;}
+.sobre-content{display:flex;flex-direction:column;gap:24px;}
+.sobre-body{font-size:16px;line-height:1.8;color:var(--clr-muted);}
+.sobre-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;}
+.stat-box{padding:22px 24px;background:var(--clr-soft);border-radius:var(--radius);border:1px solid var(--clr-line);transition:box-shadow .25s;}
+.stat-box:hover{box-shadow:0 8px 32px rgba(0,0,0,.07);}
+.stat-num{font-size:34px;font-weight:800;color:var(--clr-orange);line-height:1;margin-bottom:4px;}
+.stat-lbl{font-size:12.5px;color:var(--clr-muted);font-weight:500;}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:11px;margin-top:8px;}
+.checklist li{display:flex;align-items:flex-start;gap:11px;font-size:14.5px;color:var(--clr-ink);font-weight:500;}
+.check-mark{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--clr-yellow);display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.check-mark svg{width:10px;height:10px;}
+.section-head{margin-bottom:64px;}
+.section-head.center{text-align:center;display:flex;flex-direction:column;align-items:center;}
+.section-head.center .body-lg{text-align:center;margin:0 auto;}
+
+/* ATRAÇÕES */
+.atracoes{padding:120px 0;background:var(--clr-bg);}
+.atr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.atr-card{background:var(--clr-white);border:1px solid var(--clr-line);border-radius:var(--radius);overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;cursor:default;}
+.atr-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.1);}
+.atr-img{height:140px;overflow:hidden;position:relative;}
+.atr-img .photo{transition:transform .45s ease;}
+.atr-card:hover .atr-img .photo{transform:scale(1.05);}
+.atr-body{padding:18px 20px 20px;}
+.atr-name{font-size:14px;font-weight:700;color:var(--clr-ink);margin-bottom:4px;}
+.atr-desc{font-size:12.5px;color:var(--clr-muted);line-height:1.5;}
+.atr-age{display:inline-block;margin-top:10px;font-size:11px;font-weight:600;padding:3px 10px;border-radius:50px;background:var(--clr-yellow-pale);color:#6B5800;border:1px solid rgba(245,200,0,.4);letter-spacing:.3px;}
+
+/* ESTRUTURA */
+.estrutura{padding:120px 0;background:var(--clr-white);}
+.est-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:280px 280px;gap:16px;}
+.est-cell{border-radius:var(--radius-lg);overflow:hidden;position:relative;transition:transform .35s ease;}
+.est-cell:hover{transform:scale(1.015);}
+.est-cell:nth-child(1){grid-column:1/6;grid-row:1/2;}
+.est-cell:nth-child(2){grid-column:6/9;grid-row:1/2;}
+.est-cell:nth-child(3){grid-column:9/13;grid-row:1/2;}
+.est-cell:nth-child(4){grid-column:1/5;grid-row:2/3;}
+.est-cell:nth-child(5){grid-column:5/9;grid-row:2/3;}
+.est-cell:nth-child(6){grid-column:9/13;grid-row:2/3;}
+.est-cell .photo{height:100%;}
+.est-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%);}
+.est-label{position:absolute;bottom:0;left:0;right:0;padding:20px 22px;}
+.est-label h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:2px;}
+.est-label p{font-size:12px;color:rgba(255,255,255,.7);}
+
+/* GASTRONOMIA */
+.gastro{padding:120px 0;background:var(--clr-bg);}
+.gastro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.gastro-card{background:var(--clr-white);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--clr-line);transition:transform .3s,box-shadow .3s;}
+.gastro-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.09);}
+.gastro-img{height:200px;overflow:hidden;}
+.gastro-img .photo{transition:transform .45s ease;}
+.gastro-card:hover .gastro-img .photo{transform:scale(1.05);}
+.gastro-info{padding:22px 24px;}
+.gastro-tag{font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--clr-orange);margin-bottom:7px;}
+.gastro-info h3{font-size:16px;font-weight:700;margin-bottom:7px;}
+.gastro-info p{font-size:13.5px;color:var(--clr-muted);line-height:1.6;}
+
+/* DEPOIMENTOS */
+.dep{padding:120px 0;background:var(--clr-white);}
+.nums-row{display:grid;grid-template-columns:repeat(3,1fr);margin-bottom:80px;border:1px solid var(--clr-line);border-radius:var(--radius-lg);overflow:hidden;}
+.num-block{padding:40px 32px;text-align:center;border-right:1px solid var(--clr-line);background:var(--clr-white);}
+.num-block:last-child{border-right:none;}
+.num-block strong{display:block;font-family:var(--ff-display);font-size:52px;font-weight:700;color:var(--clr-yellow);line-height:1;margin-bottom:6px;}
+.num-block span{font-size:13px;color:var(--clr-muted);}
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.dep-card{padding:32px;border:1px solid var(--clr-line);border-radius:var(--radius-lg);background:var(--clr-bg);transition:box-shadow .3s,transform .3s;}
+.dep-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.08);transform:translateY(-4px);}
+.dep-stars{color:var(--clr-yellow);font-size:15px;letter-spacing:2px;margin-bottom:18px;}
+.dep-text{font-size:14.5px;line-height:1.75;color:var(--clr-ink);font-style:italic;margin-bottom:24px;}
+.dep-author{display:flex;align-items:center;gap:12px;}
+.dep-avatar{width:42px;height:42px;border-radius:50%;background:var(--clr-soft);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--clr-orange);border:1.5px solid var(--clr-line);flex-shrink:0;}
+.dep-name{font-size:13.5px;font-weight:700;color:var(--clr-ink);}
+.dep-role{font-size:12px;color:var(--clr-muted);}
+
+/* COMO */
+.como{padding:120px 0;background:var(--clr-soft);}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+.step{padding:36px 28px;background:var(--clr-white);border:1px solid var(--clr-line);border-radius:var(--radius-lg);transition:box-shadow .3s,transform .3s;}
+.step:hover{box-shadow:0 12px 40px rgba(0,0,0,.08);transform:translateY(-4px);}
+.step-n{font-family:var(--ff-display);font-size:56px;font-weight:700;color:rgba(245,200,0,.35);line-height:1;margin-bottom:20px;}
+.step-icon{width:44px;height:44px;border-radius:12px;background:var(--clr-orange);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+.step-icon svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.step h3{font-size:16px;font-weight:700;margin-bottom:10px;}
+.step p{font-size:13.5px;color:var(--clr-muted);line-height:1.65;}
+
+/* CTA */
+.cta-blk{padding:120px 0;background:var(--clr-ink);position:relative;overflow:hidden;}
+.cta-blk::before{content:'';position:absolute;top:0;right:0;width:55%;height:100%;background-image:url('festa_cta.jpg');background-size:cover;background-position:center;opacity:.12;}
+.cta-inner{position:relative;z-index:1;max-width:640px;}
+.cta-blk .label{color:var(--clr-yellow);}
+.cta-blk h2.display{color:#fff;}
+.cta-blk h2.display em{color:var(--clr-yellow);}
+.cta-sub{font-size:16px;color:rgba(255,255,255,.6);margin:20px 0 40px;line-height:1.7;}
+.urgency{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.18);padding:8px 18px;border-radius:50px;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:36px;letter-spacing:.3px;}
+.urgency-dot{width:7px;height:7px;border-radius:50%;background:var(--clr-yellow);}
+.cta-btns{display:flex;gap:14px;flex-wrap:wrap;}
+
+/* CONTATO */
+.contato{padding:120px 0;background:var(--clr-white);}
+.contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.contato-items{display:flex;flex-direction:column;gap:16px;margin-top:32px;}
+.contato-item{display:flex;align-items:center;gap:18px;padding:20px 22px;border:1px solid var(--clr-line);border-radius:var(--radius);text-decoration:none;color:var(--clr-ink);background:var(--clr-bg);transition:border-color .25s,box-shadow .25s,transform .25s;}
+.contato-item:hover{border-color:var(--clr-orange);box-shadow:0 6px 24px rgba(204,31,31,.1);transform:translateX(4px);}
+.contato-icon{width:44px;height:44px;border-radius:12px;background:var(--clr-soft);flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.contato-icon svg{width:20px;height:20px;stroke:var(--clr-orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.ci-lbl{font-size:11px;color:var(--clr-muted);font-weight:500;letter-spacing:.3px;margin-bottom:2px;}
+.ci-val{font-size:15px;font-weight:600;}
+.form-box{background:var(--clr-bg);border:1px solid var(--clr-line);border-radius:var(--radius-lg);padding:44px;}
+.form-box h3{font-size:22px;font-weight:700;margin-bottom:6px;}
+.form-box p{font-size:14px;color:var(--clr-muted);margin-bottom:28px;}
+.form-row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fg{margin-bottom:14px;}
+.fg label{display:block;font-size:12.5px;font-weight:600;color:var(--clr-ink);margin-bottom:7px;}
+.fg input,.fg select,.fg textarea{width:100%;padding:13px 16px;background:var(--clr-white);border:1.5px solid var(--clr-line);border-radius:10px;font-family:var(--ff-body);font-size:14px;color:var(--clr-ink);outline:none;transition:border-color .25s;-webkit-appearance:none;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--clr-orange);}
+.fg textarea{min-height:96px;resize:vertical;}
+.form-submit{width:100%;margin-top:6px;padding:16px;background:#25D366;color:#fff;border:none;border-radius:50px;font-family:var(--ff-body);font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 6px 24px rgba(37,211,102,.3);transition:transform .25s,box-shadow .25s;display:flex;align-items:center;justify-content:center;gap:10px;}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(37,211,102,.4);}
+.form-submit svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+
+/* FOOTER */
+.footer{background:#080808;padding:72px 0 36px;color:rgba(255,255,255,.55);}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:32px;}
+.footer-brand img{height:80px;width:auto;margin-bottom:16px;}
+.footer-brand p{font-size:13.5px;line-height:1.75;max-width:280px;}
+.footer-social{display:flex;gap:12px;margin-top:20px;}
+.social-ico{width:36px;height:36px;border:1px solid rgba(255,255,255,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:border-color .25s,background .25s;}
+.social-ico:hover{border-color:var(--clr-yellow);background:var(--clr-yellow);}
+.social-ico svg{width:16px;height:16px;stroke:rgba(255,255,255,.75);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.footer-col h4{font-size:11.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(245,200,0,.6);margin-bottom:20px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+.footer-col ul li a{font-size:13.5px;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s;}
+.footer-col ul li a:hover{color:#fff;}
+.footer-btm{display:flex;flex-direction:column;align-items:center;text-align:center;font-size:12.5px;gap:6px;}
+.footer-btm a{color:var(--clr-yellow);text-decoration:none;}
+
+/* WA */
+.wa-btn{position:fixed;bottom:28px;right:28px;z-index:200;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(37,211,102,.45);text-decoration:none;transition:transform .3s,box-shadow .3s;animation:wa-ring 3.5s ease-in-out infinite;}
+.wa-btn:hover{transform:scale(1.1);box-shadow:0 14px 40px rgba(37,211,102,.55);}
+.wa-btn svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+@keyframes wa-ring{0%,100%{box-shadow:0 8px 28px rgba(37,211,102,.45);}50%{box-shadow:0 8px 28px rgba(37,211,102,.45),0 0 0 10px rgba(37,211,102,.1);}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:1080px){
+  .atr-grid{grid-template-columns:repeat(3,1fr);}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .footer-brand{grid-column:1/-1;}
+}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;min-height:auto;}
+  .hero-left{max-width:100%;padding:64px 32px 48px;margin:0;}
+  .hero-right{height:400px;}
+  .sobre-grid,.contato-grid{grid-template-columns:1fr;gap:48px;}
+  .sobre-imgs{order:-1;}
+  .gastro-grid{grid-template-columns:1fr 1fr;}
+  .dep-grid{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr 1fr;}
+  .nums-row{grid-template-columns:1fr 1fr;}
+  .num-block:nth-child(3){border-right:none;}
+  .est-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .est-cell{grid-column:auto!important;grid-row:auto!important;aspect-ratio:4/3;height:auto;}
+  .atr-grid{grid-template-columns:1fr 1fr;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+}
+@media(max-width:560px){
+  .container{padding:0 20px;}
+  .sobre,.atracoes,.estrutura,.gastro,.dep,.como,.cta-blk,.contato{padding:80px 0;}
+  .hero-left{padding:60px 20px 40px;}
+  .hero-right{height:300px;}
+  .hero-btns,.cta-btns{flex-direction:column;}
+  .btn{justify-content:center;}
+  .gastro-grid{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr;}
+  .est-grid{grid-template-columns:1fr;}
+  .form-row2{grid-template-columns:1fr;}
+  .form-box{padding:28px 22px;}
+  .footer-top{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="Buffet Zureta">
+      <img src="header.jpg" alt="Buffet Zureta">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#atracoes">Atrações</a></li>
+      <li><a href="#estrutura">Estrutura</a></li>
+      <li><a href="#gastronomia">Cardápio</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a href="https://wa.me/5511984622895?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="btn btn-primary nav-cta" style="padding:11px 24px;font-size:13px;">Solicitar Orçamento</a></li>
+    </ul>
+    <button class="hamburger" id="hbg" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mob-overlay" id="mobMenu">
+  <a href="#sobre" onclick="closeMenu()">Sobre</a>
+  <a href="#atracoes" onclick="closeMenu()">Atrações</a>
+  <a href="#estrutura" onclick="closeMenu()">Estrutura</a>
+  <a href="#gastronomia" onclick="closeMenu()">Cardápio</a>
+  <a href="#depoimentos" onclick="closeMenu()">Depoimentos</a>
+  <a href="#contato" onclick="closeMenu()">Contato</a>
+  <a href="https://wa.me/5511984622895" target="_blank" class="mob-cta">Solicitar Orçamento pelo WhatsApp</a>
+</div>
+
+<section id="home">
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-meta">
+        <span class="hero-pill"><span class="hero-dot"></span>Buffet aberto para reservas</span>
+        <span class="hero-pill">Osasco · SP</span>
+      </div>
+      <h1>Festas que viram<br><em>memórias para a vida.</em></h1>
+      <p class="hero-sub">Buffet infantil premium em Osasco desde 2006. Atrações exclusivas, gastronomia completa e um ambiente pensado para a felicidade de toda a sua família.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5511984622895?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." class="btn btn-primary" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Solicitar Orçamento
+        </a>
+        <a href="#sobre" class="btn btn-outline">Conhecer o Espaço</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-stat"><strong>+2.000</strong><span>festas realizadas</span></div>
+        <div class="trust-divider"></div>
+        <div class="trust-stat"><strong>18 anos</strong><span>de tradição</span></div>
+        <div class="trust-divider"></div>
+        <div class="trust-stat"><strong>100%</strong><span>clientes satisfeitos</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-wrap">
+        <div class="photo" style="background-image:url('fachada.png');height:100%;"></div>
+        <div class="hero-img-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-hidden="true">
+  <div class="strip-track">
+    <span>Desde 2006</span><span>Buffet Premium Osasco</span><span>+2.000 Festas</span><span>Atrações Exclusivas</span><span>Gastronomia Completa</span><span>Ambiente Seguro</span>
+    <span>Desde 2006</span><span>Buffet Premium Osasco</span><span>+2.000 Festas</span><span>Atrações Exclusivas</span><span>Gastronomia Completa</span><span>Ambiente Seguro</span>
+  </div>
+</div>
+
+<section class="sobre" id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-imgs reveal">
+        <div class="sobre-img-tall"><div class="photo" style="background-image:url('buffet2.jpg');height:100%;"></div></div>
+        <div class="sobre-img-sq"><div class="photo" style="background-image:url('buffet1.jpg');height:100%;"></div></div>
+        <div class="sobre-img-sq"><div class="photo" style="background-image:url('unnamed.webp');height:100%;"></div></div>
+      </div>
+      <div class="sobre-content reveal" style="transition-delay:.15s">
+        <span class="label">Quem Somos</span>
+        <h2 class="display">Um lugar construído com amor e tradição</h2>
+        <p class="sobre-body">Desde 2006, o Buffet Zureta ocupa um lugar especial no coração das famílias de Osasco. Localizado em um dos bairros mais nobres da cidade, nosso espaço foi pensado para oferecer muito mais do que uma festa — uma experiência completa, segura e inesquecível para crianças e adultos.</p>
+        <p class="sobre-body">São mais de 18 anos cuidando de cada detalhe: das atrações à gastronomia, do atendimento ao ambiente. Cada festa é única, e nossa equipe se dedica inteiramente para que assim seja.</p>
+        <div class="sobre-stats">
+          <div class="stat-box"><div class="stat-num">+2.000</div><div class="stat-lbl">Festas realizadas</div></div>
+          <div class="stat-box"><div class="stat-num">18+</div><div class="stat-lbl">Anos de experiência</div></div>
+          
+          <div class="stat-box"><div class="stat-num">100%</div><div class="stat-lbl">Clientes satisfeitos</div></div>
+        </div>
+        <ul class="checklist">
+          <li><span class="check-mark"><svg viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Ambiente seguro, monitorado e climatizado</li>
+          <li><span class="check-mark"><svg viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Atrações para todas as idades, do bebê ao adulto</li>
+          <li><span class="check-mark"><svg viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Gastronomia completa e de alto padrão</li>
+          <li><span class="check-mark"><svg viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>Atendimento personalizado do primeiro contato ao fim da festa</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="atracoes" id="atracoes">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="label">Atrações</span>
+      <h2 class="display">Diversão para todas as idades</h2>
+      <p class="body-lg" style="margin-top:16px;">Mais de 15 atrações que garantem a diversão de toda a família — com segurança e muita alegria.</p>
+    </div>
+    <div class="atr-grid reveal" style="transition-delay:.1s">
+      <div class="atr-card">
+        <div class="atr-img"><div class="photo" style="background-image:url('monorail.jpg');"></div></div>
+        <div class="atr-body"><div class="atr-name">Monorail</div><div class="atr-desc">Passeio elevado que percorre todo o salão</div><span class="atr-age">Todas as idades</span></div>
+      </div>
+      <div class="atr-card">
+        <div class="atr-img"><div class="photo" style="background-image:url('xicaramaluca.jpg');"></div></div>
+        <div class="atr-body"><div class="atr-name">Xícara Maluca</div><div class="atr-desc">Giro clássico que nunca sai de moda</div><span class="atr-age">3–10 anos</span></div>
+      </div>
+      <div class="atr-card">
+        <div class="atr-img"><div class="photo" style="background-image:url('labamba.jpg');"></div></div>
+        <div class="atr-body"><div class="atr-name">La Bamba</div><div class="atr-desc">Balanço radical para os mais corajosos</div><span class="atr-age">4–12 anos</span></div>
+      </div>
+      <div class="atr-card">
+        <div class="atr-img"><div class="photo" style="background-image:url('trenzinho.jpg');"></div></div>
+        <div class="atr-body"><div class="atr-name">Trenzinho</div><div class="atr-desc">Viagem divertida pelo espaço inteiro</div><span class="atr-age">Todas as idades</span></div>
+      </div>
+      <div class="atr-card">
+        <div class="atr-img"><div class="photo" style="background-image:url('minimercado.jpg');"></div></div>
+        <div class="atr-body"><div class="atr-name">Mini Mercado</div><div class="atr-desc">Espaço lúdico e pedagógico de faz-de-conta</div><span class="atr-age">2–8 anos</span></div>
+      </div>
+      <div class="atr-card">
+        <div class="atr-img"><div class="photo" style="background-image:url('boliche.jpg');"></div></div>
+        <div class="atr-body"><div class="atr-name">Boliche</div><div class="atr-desc">Competição divertida para toda a família</div><span class="atr-age">Todas as idades</span></div>
+      </div>
+      <div class="atr-card">
+        <div class="atr-img"><div class="photo" style="background-image:url('tirolesa.jpg');"></div></div>
+        <div class="atr-body"><div class="atr-name">Tirolesa</div><div class="atr-desc">Adrenalina e muita risada garantidas</div><span class="atr-age">5+ anos</span></div>
+      </div>
+      <div class="atr-card">
+        <div class="atr-img"><div class="photo" style="background-image:url('airgame.jpg');"></div></div>
+        <div class="atr-body"><div class="atr-name">Air Game · Brinquedão · Xbox</div><div class="atr-desc">E muito mais para cada faixa etária</div><span class="atr-age">Todas as idades</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="estrutura" id="estrutura">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="label">Estrutura</span>
+      <h2 class="display">Cada ambiente pensado<br>nos mínimos detalhes</h2>
+    </div>
+    <div class="est-grid reveal" style="transition-delay:.1s">
+      <div class="est-cell">
+        <div class="photo" style="height:100%;background-image:url('salaoprincipal.jpg');"></div>
+        <div class="est-overlay"></div>
+        <div class="est-label"><h3>Salão Principal</h3><p>Amplo, climatizado e decorado com tema exclusivo</p></div>
+      </div>
+      <div class="est-cell">
+        <div class="photo" style="height:100%;background-image:url('areagames.jpg');"></div>
+        <div class="est-overlay"></div>
+        <div class="est-label"><h3>Área de games</h3><p>Espaço de muita diversão para os pequeninos</p></div>
+      </div>
+      <div class="est-cell">
+        <div class="photo" style="height:100%;background-image:url('lounge.jpg');"></div>
+        <div class="est-overlay"></div>
+        <div class="est-label"><h3>Lounge dos Adultos</h3><p>Conforto e sofisticação para os pais</p></div>
+      </div>
+      <div class="est-cell">
+        <div class="photo" style="height:100%;background-image:url('mezanino.jpg');"></div>
+        <div class="est-overlay"></div>
+        <div class="est-label"><h3>Mezanino</h3><p>Vista privilegiada de toda a festa</p></div>
+      </div>
+      <div class="est-cell">
+        <div class="photo" style="height:100%;background-image:url('cantinho.jpg');"></div>
+        <div class="est-overlay"></div>
+        <div class="est-label"><h3>Área Instagramável</h3><p>Cenários perfeitos para as fotos da festa</p></div>
+      </div>
+      <div class="est-cell">
+        <div class="photo" style="height:100%;background-image:url('fraldario.jpg');"></div>
+        <div class="est-overlay"></div>
+        <div class="est-label"><h3>Fraldário Completo</h3><p>Privacidade e conforto para as mamães</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gastro" id="gastronomia">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="label">Cardápio</span>
+      <h2 class="display">Uma experiência completa<br>também no sabor</h2>
+      <p class="body-lg" style="margin-top:16px;">Gastronomia cuidadosamente preparada para agradar crianças e adultos — do salgadinho ao bolo personalizado.</p>
+    </div>
+    <div class="gastro-grid reveal" style="transition-delay:.1s">
+      <div class="gastro-card">
+        <div class="gastro-img"><div class="photo" style="height:100%;background-image:url('variedade.jpg');"></div></div>
+        <div class="gastro-info"><div class="gastro-tag">Salgados</div><h3>Variedade de Salgadinhos</h3><p>Coxinha, quibe, bolinha de queijo, risoles e muito mais, sempre quentinhos.</p></div>
+      </div>
+      <div class="gastro-card">
+        <div class="gastro-img"><div class="photo" style="height:100%;background-image:url('pipoca.jpg');"></div></div>
+        <div class="gastro-info"><div class="gastro-tag">Bolo</div><h3>Pipoca Salgada</h3><p>Pipoca salgada, saborosa e perfeita para os pequeninos.</p></div>
+      </div>
+      <div class="gastro-card">
+        <div class="gastro-img"><div class="photo" style="height:100%;background-image:url('mesadedoces.jpg');"></div></div>
+        <div class="gastro-info"><div class="gastro-tag">Doces</div><h3>Mesa de Doces Finos</h3><p>Brigadeiros gourmet, beijinhos, cajuzinhos e doces artesanais que encantam.</p></div>
+      </div>
+      <div class="gastro-card">
+        <div class="gastro-img"><div class="photo" style="height:100%;background-image:url('buffetcompleto.jpg');"></div></div>
+        <div class="gastro-info"><div class="gastro-tag">Pratos Quentes</div><h3>Buffet Completo</h3><p>Cardápio variado com opções saborosas para os adultos aproveitarem à vontade.</p></div>
+      </div>
+      <div class="gastro-card">
+        <div class="gastro-img"><div class="photo" style="height:100%;background-image:url('pratos.jpg');"></div></div>
+        <div class="gastro-info"><div class="gastro-tag">Menu Kids</div><h3>Pratos Infantis</h3><p>Preparados especialmente para o paladar das crianças — Quentinhos e gostosos.</p></div>
+      </div>
+      <div class="gastro-card">
+        <div class="gastro-img"><div class="photo" style="height:100%;background-image:url('barcompleto.jpg');"></div></div>
+        <div class="gastro-info"><div class="gastro-tag">Bebidas</div><h3>Bar Completo</h3><p>Refrigerantes, sucos naturais, água e opções especiais para os adultos.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dep" id="depoimentos">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="label">Depoimentos</span>
+      <h2 class="display">O que dizem as famílias<br>que viveram a experiência</h2>
+    </div>
+    <div class="nums-row reveal" style="transition-delay:.05s">
+      <div class="num-block"><strong>+2.000</strong><span>Festas realizadas</span></div>
+      <div class="num-block"><strong>18+</strong><span>Anos de tradição</span></div>
+      <div class="num-block"><strong>100%</strong><span>Clientes satisfeitos</span></div>
+      
+    </div>
+    <div class="dep-grid reveal" style="transition-delay:.1s">
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">Fizemos a festa do meu filho de 5 anos no Zureta e foi simplesmente perfeito. Ele não queria ir embora. O atendimento foi impecável do início ao fim — equipe atenciosa, espaço lindo e comida deliciosa.</p>
+        <div class="dep-author"><div class="dep-avatar">JS</div><div><div class="dep-name">Juliana Santos</div><div class="dep-role">Mamãe do Thiago, 5 anos</div></div></div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">Ambiente lindo, organizado e a equipe é maravilhosa. O espaço para os adultos é super confortável — a gente também aproveitou muito! A comida estava uma delícia. Com certeza voltaremos.</p>
+        <div class="dep-author"><div class="dep-avatar">RM</div><div><div class="dep-name">Rafael Mendes</div><div class="dep-role">Papai da Sophia, 3 anos</div></div></div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">Já fizemos três festas no Zureta! Cada ano eles superam nossas expectativas. Lugar seguro, limpo, com muitas atrações e uma equipe que trata a gente como família. Super recomendo.</p>
+        <div class="dep-author"><div class="dep-avatar">CP</div><div><div class="dep-name">Camila Pereira</div><div class="dep-role">Mamãe da Ana, 7 anos</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="como" id="como-funciona">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="label">Como Funciona</span>
+      <h2 class="display">Do primeiro contato<br>à festa perfeita</h2>
+    </div>
+    <div class="steps reveal" style="transition-delay:.1s">
+      <div class="step">
+        <div class="step-n">01</div>
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Solicite o Orçamento</h3>
+        <p>Entre em contato pelo WhatsApp ou formulário. Respondemos em até 2 horas com todas as informações.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3>Visite o Espaço</h3>
+        <p>Agende uma visita guiada e conheça pessoalmente cada ambiente. Sem compromisso.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <div class="step-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg></div>
+        <h3>Escolha o Pacote</h3>
+        <p>Monte a festa ideal com o pacote que combina com você. Personalizamos cada detalhe.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">04</div>
+        <div class="step-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Aproveite a Festa</h3>
+        <p>No grande dia, você relaxa e curte. Nossa equipe cuida de tudo para que a festa seja perfeita.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-blk">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <span class="label">Reserve sua data</span>
+      <h2 class="display">A festa dos sonhos<br>começa com <em>uma mensagem.</em></h2>
+      <p class="cta-sub">Datas concorridas enchem rápido — especialmente nos fins de semana. Garanta a sua agora e deixe o resto com a gente.</p>
+      <div class="urgency"><span class="urgency-dot"></span>Datas concorridas nos finais de semana — disponibilidade limitada</div>
+      <div class="cta-btns">
+        <a href="https://wa.me/5511984622895?text=Olá!%20Vi%20o%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento%20para%20uma%20festa." class="btn btn-wa" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Falar no WhatsApp
+        </a>
+        <a href="tel:1136818754" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.25);">Ligar: (11) 3681-8754</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contato" id="contato">
+  <div class="container">
+    <div class="contato-grid">
+      <div class="reveal">
+        <span class="label">Contato</span>
+        <h2 class="display">Fale com a gente</h2>
+        <p class="body-lg" style="margin-top:16px;">Estamos prontos para planejar a festa perfeita com você.</p>
+        <div class="contato-items">
+          <a href="https://wa.me/5511984622895" class="contato-item" target="_blank">
+            <div class="contato-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div><div class="ci-lbl">WhatsApp</div><div class="ci-val">(11) 98462-2895</div></div>
+          </a>
+          <a href="tel:1136818754" class="contato-item">
+            <div class="contato-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><div class="ci-lbl">Telefone</div><div class="ci-val">(11) 3681-8754</div></div>
+          </a>
+          <div class="contato-item" style="cursor:default;">
+            <div class="contato-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="ci-lbl">Endereço</div><div class="ci-val">Av. Lucianinho Melli, 78 — Osasco / SP</div></div>
+          </div>
+          <a href="https://instagram.com/zuretabuffet" class="contato-item" target="_blank">
+            <div class="contato-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+            <div><div class="ci-lbl">Instagram</div><div class="ci-val">@zuretabuffet</div></div>
+          </a>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:.15s">
+        <div class="form-box">
+          <h3>Solicitar Orçamento</h3>
+          <p>Preencha abaixo e entraremos em contato em até 2 horas.</p>
+          <div class="form-row2">
+            <div class="fg"><label>Nome completo</label><input type="text" placeholder="Seu nome"></div>
+            <div class="fg"><label>WhatsApp</label><input type="tel" placeholder="(11) 00000-0000"></div>
+          </div>
+          <div class="form-row2">
+            <div class="fg"><label>Data da festa</label><input type="date"></div>
+            <div class="fg"><label>Nº de convidados</label><select><option value="">Selecione...</option><option>Até 50 pessoas</option><option>51 a 100 pessoas</option><option>101 a 150 pessoas</option><option>Mais de 150 pessoas</option></select></div>
+          </div>
+          <div class="fg"><label>Tipo de evento</label><select><option value="">Selecione...</option><option>Aniversário Infantil</option><option>Chá de Bebê</option><option>Batizado</option><option>Confraternização</option><option>Outro</option></select></div>
+          <div class="fg"><label>Mensagem (opcional)</label><textarea placeholder="Conte um pouco sobre a festa que você sonha..."></textarea></div>
+          <button class="form-submit" onclick="submitForm()">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Enviar pelo WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCACtALwDASIAAhEBAxEB/8QAHQAAAgICAwEAAAAAAAAAAAAAAAcGCAQFAQIDCf/EAEgQAAEDAwICBQgGCAQFBQEAAAIBAwQABREGEgchEyIxMkEIFEJRUmFxgWJygpGhohUjM7GywdLwFiSS0UNjwuHxJTREU+Ly/8QAHAEAAgMBAQEBAAAAAAAAAAAABQYABAcDAQgC/8QANREAAQQCAAQDBQcEAwEAAAAAAQACAwQFEQYSITETQVEUImFxgQcVIzKRofAWscHRJELhYv/aAAwDAQACEQMRAD8AplRRRUURRRRUURRRRUURRRRUURRTC0Lwd1zrCN51bLcDUfkqOyXNgqi9n/hea5TCVnap4D8RNPQSmyLazJaBFUvNnd21E8V5Inyzn3VQdlKbZPCMo5vTa7itKW83KdJX0V2MCAyAxUSFcEKphUX1V1q+uC94EOTPlhFiMk68a4EU/eq+Ce9eyrBcOvJnuFxEJWqp5wmiTlHZFUPOfFVTKJ60VEWpp5J3CmPCszWrrrHE7jIXMVCTmyKY63uVV3D7lFe1C5WeslsRoU6VeVIOZ4jsvsmrROtd3f6RqtRjZH4k3f0SYtvkvcPsCX6IkZ9ZSSJV+RKqfhRfPJj0A6xjzCUx72HAFf4f51Ypo2wTG4aw71KbbaXmnOq0psQwmR1l3MPivWSB7+URj9F86eOfBqZoLbdLdIKdaHTUN21d7Jdu0vlzTt5IufDKjq/HHhmPL4dXmPIQUFxoUTJYTKmPZ8cYqmFl0ZPmKpSzGOCLhEHBqq/JcY+aqnqo7w1mzdpl9g9WnW/VdrGDsTWGx1Iy7m8h5fXsPqotWQ/ClsMNyHozrbTncMhVEL4U2LXpu025UWPGHdjHSHkjX358PDsRKj3FaY+UeDAI8stkpNp7PLn/ABUYhyUc0wjYPqimS4Jt4zHOu2nAEa90de513UAooookkpFFFFRRFFFZVthFOeVkHmmzxlEcLCL868JAGyvWtLjoLFoqRXbRGrbWjazLDNQXRUgJoOlFUTxyGUqPEJCSiSKip2oqVA4O7Ffp8bmHThpcVstMw4lw1BCgznyYjvuoBmPamez8cJWNa2471zjNS3Fbjm6IukiomBVea5Xs5VZ97yf9D6mtMe48P9SyYs5vaRMvqhpntzhcKhfNKpXL0VYASHW/NdYK75urRvSRHFvQ7+hNULbVfWVDdBHYsjHfFURcL4ZTKdngqLyzitLo6CFx1NBiOKm0nNy5HdnailjC9ucVb/itwSvuruGlsBRY/wAQ20UbExJFEwRfSLG7uqq8k8E9VKbifw2tvC/hZa7hLEv8RyJo7HB7U5ZUSXnhNu7knL49qjamXE0LY3H8Q7H/AL8lamp+HKXN/IP5pWa4CvtytPtNoICLfVQR7qUz7taQdY3CKVUzyfeJMNtDDpFJpzk63hN4c05/DmuU96qmVRUS0di1LFuMYRbc3IVIk9WGu58U404o3Y8STlni/KqV+WNoiNZL9C1FbYiMsTUVt/YHJDFE5rjs7UxnnzRPCkdpi3rdtR262bSJJUltokHt2qSIv4Zr6HccNBxNbaUfschVZcJUNp5FwolyX5pnnjsyiKvJFqumh+FUDhvxQsLuo7k9c57z6LBt8Jjc6SZVOmcEVJEaTCqq5yqIqY5Fhmwecb7CYXn8Rm9D1Hkhdii+WYPYPdcrX6Sgt223R4w91hsQrvqfU8S2MlvcEdtefnGBVUWkD5Rs+7R7Yb0PO3KAS+zlRrO6TpbNhtdp1zHumFlUPcXv8kyS4qRt21mTy9pQrQ3vjPpuMhDOuoEY+gHXIvkNVRj2uXLPe4pGa+JkhVuLLo653WZ5nbYL86RjmDTfZ9bwT504Hhyt2nmLgiceMslniCINHqVJOJnEmXrmUFvhMFFtQHu2nje96iL1fVrEhti2wIVKYnBjW8SH5ydpjtlj9isoN/8AT+ao6+09EmPQZjJMSWSwbZdo1ccK8bBDX/KE/wDCMVeFpHiBzyuq0vuKaJ00Ik8VcT7kCmCXepdcTyzLiD6t6/ftq/hxuyPkVx+0h3LhXD1c3+6htFFFNy+eUUUUVFEVyBEBoYqqEi5RU8K4oqKJtcN9bXmNFWPAur8YUXmwpobYkvjtJFTHq9/rxU8TVkiYwsS72Sz3CKXM0Vjo1X5iqJVcrZLODNbkBz2rzT1pTgsk0ZkEDA+Soi5x689nySlzJQvgf4kfYrY+CbdLLwmrbaC9v7hbm8M8P7g2rknQDTGE5eZzFaz9wUyuF+i9JabjW7UKa/s0GGhI+5GabcE8eLe9x4sAuea7UzSneHLWKiUyxOHII0/dVJkrrLCyV/RXeI+E4ouV1CLR81e6Fxg4fSMxYeo7aagJbk6ZOwaTfHm3QdfxQ1LdgCDaIbG2DHkI4TsosqqHhtwdm5F8d2OWcZWq5lZJDBC+3tUx5im1Km2mOKeqrNfhm3N4pkVRFp5rkmG09nl/59KuctaRpElV2y36LPLuDvQTsa+PTPM91FZtlgQkU7Ay/FTcB5N/eaGmexeXLmvv7KnnC7ilc7ZcGbfcva5KnYtM97h5pXW1uG6afL9GPPpncyG4F+xnCfLFaG18BZ8O7hNuM9qQjZZAGmsIvx3UJtZahagc20eo9e+002YqHI01vcPp5J92+8ndYAONhuVRyKZ7ajFrtLGmnZd4mA0/dbi6RzZ7zotCS+i0BEvVAeqIjUo03a1Yci2hrqqQ5Ml9n1VUvylL9OunFyd0YI/b7BKSLHiSAy0vRKInuHluEjEvs7a6cJ8IzZiORxeQzW9DuUn5PKxUXhoHdWohTWpLzgI0bDzK7XGjTrDUEnWm6RuIEiJeXivOnb62YNA80mIbopu6L6hCJfMftUeTc3ftY2aPfJzTEUBadjqrQiA4F89ogHsiK7fs00dVafdtURZ7bivMB1nEX0B9oaB3MHew8sobHto6fH4H6dOyv1sjBLy6d3SwicGNHrK3BDd2f/X5weP4s05NI6bttnt4R40dmO0PdBsNqJWus7jIxlfIuonWpZcVOM0bTgk2LuOewEQdxFXDGz2JXjxSXnyC7XrNq0PDL/dCZvEy7262WRx0nmxcTupVP+It6YumtWZA/tUioLhevmeK0mtuJt51GvUQmg/5hZL7q0Gm4zzr5SHSJTIsqpdq9tNcGNdE51mYcpI1pGOFGvFpjYuuipSnNaW3E3P6SY9WC/lTKpe8U/20L3E6n4BRDDH/AJI+RTl9pLd4Un/6H91CaKKKbl89IoooqKIoooqKIqY8O7kjLpxXF7OsPw5+71qn31DqyLe95vNZeVVRBJNyomVx4/hXCzCJoywophsi/G3Y7LfI9fl5p2oqGNdvDGKw7Q8rrKIq5VKzBpGe0tdpfVNaZs8TZB5o2otY0mIJjWTigiwNRj3NPRSxBFIwh4TW8lK4vK1NtDi9WG4PR/RQ9y/1VZK5i20wDXLr0gfJt09KgWt+6yWCbdnGLgoo9bZjA/1fOpFxE4lnE15b9NRADpC67zp90ApXvxsnszeENn/Q6/usFysAdc1H2/mkybNJGPq9HTEuiNhB3+iP1qgPETyfk1LrWdf7XqQbazcnUdlMuRulUF29Yg6yd4ut7vy1MmoD94tSFBlE2R9u1eqXxrJCz6icgFCk3cmG1Haqs/tNv1vRp24X4llxdQPjBB16d0pZTHRWpOV5Ssv2vmuFka36T4e2Zq8zZrrsWCDjpCA9GXXMvaLcX0amPAfiyPFO0XO13e3NW+8Q28vNNllt9otw7wTvDt5CX1h9fJccfeC0vUtugOaalNtyYG4W47vVF3ft9L0du2o9wO0fq/h7q2bcJVsMTW0vxWnkISDpTMNpfVHbupohzWMyONlnsPDZNb6nrv00qRoWI52MhG2pzsG7I0BIbYP9cjRJVLdcjPuGtZjM3cRsbWwz6I4z/OrZ8Nxu7d1kWmS+BxWgBcbOeS3eP2ahnHfhRNi3MtW2OIUgTHM5sV6ybRERNE8ffWX8PWjDZe0+nQ/v/ZaBVggktNhndoE7SKttmZY5r3q2zbQB3a7CQL2V3ZbckSmYkcFceeMQbBPFVo7JK+Q9VtNWlUoxbjAAHmulQDiqC9NCPw66fgNNbVWnbxpW4tQb0y2ByGkdaJs9wqninxSlrxSwlrYTGVWQiovu2rn96VdxW22m7SnxvLFd4fkkhdsdP2IS7ooopwXzyiiiiooiiiiooiiiioomfw/lK7amhLCKg7er7spz+7PzqUVAeGLofrWuaGjmVX3KOE/ctT7dg6TMnHyWXAL6U4HuGxhYnO8un6dFwRAK5zU54MaWg6mujlxurgFFjEOxhfTL6Xu91QhhqTN6TzG3zJiB3/N45nt/0pUehaquOmbufmIo2e5NzLwKK/1VVdUnnhc2E6cuHFWYbDX5Y5B8dd19B7LAijCRtnb3fClvxM4eRJ6v3KG1i47xdRz3iKD/AA1XvSHH7UVvuQLOT/LkXPB7hSrc6SvjGpbQzKHbl0fCla7QsUdF45XeWuxWQskkY8ytOwoFws4gxIRnabifm8lg9hgfLaXslTgh3y2zGhNt8NtV08oXhfNkbtVaXNxi7xk7of8AFD+ru4pF2zibq6KyjaPR5HLtTlTBhaN+7EPYff8AVp7j/wAX5tsrP/Fkdy/FXzusy3CmSfHFK3ilxD09py3E4ckEJe6I9Yl+zVXrrxH1hMHA3ONF8NoN7l/HcNYWkLWOp9Y26FNnlPlyJAFIU9yqLQD7Re11Bq3NwLebG+1eAZGOp13/AJ9F+KtqoJAyKTZVueEDU0rUl3uLeyRN/XKPsCvcH5DUzvWsbPamCCXLZFfEVWsG7Otac0VcLs5+ygQ3ZB/ABUqoNqS+3rVd0euNxeJxXS3CGeqHuRKXcJj5rb3vY7lZ/Og+SsSt9ql90bKtRqbSehtcSXp0O5NWy6PFtGQxgxMveHYv5SqKcLeHk1Nd2+T+lGJrcWdIayDWBd6MV6w/Oq8MQ5cfa6Aq2ntAexfwqyfk7cSLM9fodnVjzJxiOrTKL1t5EXWL8ofmoxYpWKkRDZOdvyHQdl2u5bMVg2uNtaf016Lc+UJw419qPWsC52S2tTrYzCFlP8y22QObz3ZQlT1jST4xcMNX2HQ8m8XmLDaYZId218TIckPbjxzy+dXs1KSSbM+xGktsSDaIWXTHqge3qkX0e7VHOPOneKFmaeLVdyK7wHxJpmQw6pR1JUXGATuFhfGilRw8doaR00vIM1akx76P/Ug+SrzRRRTikhFFFFRRFFFFRRFFFFRRTDhoGX5Z+yrafeh/7U4dBtWRy9rP1IAvwIxCjUYuQvmvtfRHq9X0s+zupPcMyxIlh4KoKvyQ0/nUjbFpNUKLwAaHtFEMN3qzilrJR887gDrotTxklhvC7WQO5S5xBPw2VdLTfE+zOMtx2mW4zIJgAabERAfq1I9RWHRHEWyrHvNsiTx7oOEO11r6p94ar5ZLBYLjagdtL5QJGzvs9ZovrNVl2q+X/SFwAJ3NpS6jidYHvtf9NJ1e8+J7hG7fwPQpAyOGvURzk84S/wCNXBmXoCYUiORzLG6X6iWo9Zv1Af0vpeP5ReHkl6dvFr0X57fJD3+aIUhRnf8Agsju632tyr9URqb2e7WnW+nHrVOQSB9raSF6K+iQ/SHqlUB0vxPOPrS46WvYAxcLWhBJUO6ZCZDuEfZIdh/OrdrIy2YOreYAjfwCIU8iy5WEAGnjz9U/LrDbkQ3BJOSjVBNYWyNp/jRdoLX7I3el2qPpEO4v4qt5eeLOnINrNx6c3gR7tUZ19qxdR8R51/ZHa0pCLf1aceBbHJmmyV98muv+EGzVaT7vfG/ueyk2ubIbK71a27u99GozC/SEKTFudtd6CXFPe07t3bS+FMmyarsV5s8aFeNzRsio9LWJrB/SUS1qNslE+4Q9mO7X0FeiguxmOZuw4aPxCzSnbnqlo11BVjZesrXqrgI/fGyHze6Wh0XQ9gthA4P2S3D8qqNp6KIQk/v110s1/wBSs8OLtBiMSysSykbJ9P2TRHt3D2f3vr30+qlEGvmWfHOxr5YWn3Q7Q+QX1D9nbIpn+I4dSFnGyJhtrQzLfJjTAmQ3SafaLcBj3kKpDzSuro7kqrFMYytNyuIr34uV4U/1nxSh6u4IMhIujlv1PaJTTzAtubSdLdsL8hkX2aV1w17qrU8Rq3Xie4/Hb57NggJL4KW1OtWpuFpRbghpyH/tW5YixwFOqm751eayvEwaG/T4LN8dw1K2w7Z0Af1SiucfzS4Px8KiAaoOfZ8F+7FY1STiDD83vXTCOAdFOee0kRP5KNRummGTxIw71WTZGoaduSA/9SR/pFFFFdVSRRRWysVhvF8mNw7TbpM2Q73G2WiMi+CIiqvZXhcGjZXoBPQLW0U/tHeSxr27tA/d3IdkZNOyQ5l1PiA55e/Pypn2XyQ9NMpvu+qbjKNO6kOMLKfPep0LmzdGE6dIF3bVkd5KtnDRsBZdcIcErne9Y4x+/NbXVcNw9r7S4VOxfuq1UTyaOHkRra1N1BtXtVZLSInLw2tInNedeV38mXTUqIS2rUt5hOr3Uko08H5UFfzUC+9Kti1zMkH1Wi4/M0ocQ3Hyg79fiq68PdbyLW5sdLsHaXVwnz/qp42q8WjUNuKPKRp5p0P1rblVy1xpS+6M1O/ZbqwrE6N1hNsuq4HomC+rtrBhX+fDXLJE3t72zu/6f6ar5LAR23eLAdOVaLKOhYGWG7YfNP8AKdN0Xe2xafcchv7ijvGvWX2hX6Q9X638KX4l3l688RLjdWjcCSSNdcOqqF0Yj/Ksedr24z0isSA3tMv9ISIhbj+jz6qdpV5abFyVc35UkR6Rwsrj0eS8qsUce+kHSy99f5QijiYb2UEVc6af2WDcJ1zndSXLlPr7JuEqVrpUZ5ohdRrb1cY3UxvNGFXdt/Gsa4wGpDe3bRKjmPZZQYxpPN77ODJA7b9nyUCamKHae35V0flSJPJtSUffUisli88uRw/OBaFMfa+ilNO08D1utvUolxUZHVIFMuru+Hs0y3+Nmxs8Pet/NY3PiY6Ngxz9wnRwC0tbZnC+fpp2MP6PktE24OOZbh7frVW9YhW6fNtTyor8KQ7HcVPaA1Ff3VaTSV6m6V0+cebpTUIzUDreZQfO2jL6JNf9W2qnzrhL/T92eu0R2FOdmOvPR3h2m0Rmp4VPtVndV8lmFzn99rWeB8hDDdeA4chH9lkSJDbKZcLrerbmp3o/hFrfUyJJlNjYbefNHJY5dX4N9qfa20x/J24ZtRIzOrNRRwfubw7ozR4xFD3fTXxX7PtU80EUPlQm9mG1nmOIcx9fL6K5nuNZXyGKr0Hr5pIWPyctJMqhXi53O6n4puRlv8vW/NUpi8EuF0QMBpGO7nxckPGv5jWmMIinZXOF9VCHZ26XbD0izX7EzuaR5KrD5T3AjS8bR8rVGk4ZW2Rb2+kfigRE262mMkm8uqQpzVE7UReWeaU2r6CeVJq6NatDSbI0qOXC7NlHbbz6Hpl8k/iGqAzY7kWW7Gdwptmoqqdi48U91aPwxemuVS6b6fJBcjDIOWVw7+fqvGiiimVDFO+DGgJmvNUtQG0VuOCdI66QooiPrwqpu5pjCe/PJFq/PDvR2m9E2cYNjgtsjhOleXBOuqnJdxLzVfdVZ/I2lsMsXbKJ5wShgvHAjhE/MtWXauBG0i7qyni3Mzm4aoPK0a/2mmjjvwA8ealovCvdrnpUqOtzU27lKuwzkLukK0nF4PUqx7G5b/pBSu6SBUaj5Tc1qNWaqg6dsj9ynvbG2Qyn0q/UXM9/LH3Xnsbikh5YtxiBqqwNtbSfbZeVxE9ktiD/AArWy4WeT3ZpUYbxr0HZTrg7ht7bpADaeG4h6ylS80BKf19xyi328Km0Nz4s9ogAcgBPmuatDqK5TW7HOW1M9NLBgjab9skHqjTlbyFjGRQ1Iz+IR1PzPZE52ymu2uR0SN8p3QvDDTmjozmmbY3aL6kgdgsyDLpm/SQkIvn8qWWiNHarmackaitenpUu0RkJXJIEPJB72B7xfJK1RLddW6m6GY7IlXqS7sNHEVFb29vLwQUTs91XG000Gm9LR4EZRajsMbEFBxRe7k/YIWRWXcznfRdsex+LcJoNc36qqbLzbrG9teVdlcEw3KXP4Vk6C0q/qfXMiyCTkS1C6650w4z0IukCbfmKp8qekjhpwhtogNwsyIi+k7cnw3fnSvzPLXryBkj9H9U/ycaRNjaRHzdOqrbbztLWo0SdFalCfdBwMio462Ppck/Gmvb37hZYgXTTkqTLgh1nY5luNn4e2P0e9U3vnA7hNfrV/wCktzrJLXm1Liy3X0+0JkWR/wBPxpVSG77w21OtgvO1xV67Epsf1csPbH6XtDXlwx24w6F3PruFmt19XJ2HidnLs7HwKfPDbiVFu4gzJIRdLur6K1rfKr4cQ9YaBe1bagFu+WhonSJP/kRx6xtl9Ie8P2h9Kk9cNjWNVaaLIJ15kZv0/wDmj9L2h8afXC3VjF+0NNcl9dluMXS7u6QbetVOnIakjXD8p/Y+hSVapz4i1yjsexXtwe4m6Z1PpiMsea0EsBEHY5FghWpwxdIzzu1iS2ZepCr5jxrhHacUVdJg2+SGme35eNPbyQZTjmsbnLWU48HmaIRFleSl7+zBIKc08a5Zfhc1o32WSe6Outf52j8XhTEadtx/nZXLJ4e9VfuKPHS7W7UM/T+n7YCOxS6I5Lxcs4zyHxpxnPTZjPo1TrXEptOJN93En/uV/dQXA1orEzjI3m5R/lMWCxMVqyGT9AvCTIuV0ujl1vc5yfOe7zjnLAp2IidiJ8KXfEy1LHlt3EMKLvUcxy5onJVTPq5fJPXTP0tZrzqu6LbrGymAx5xIc5NNJ9Ll+FNZryeNM3O1LFvmrbt504PMmGRFpC5c1FRVcIqJ6SU807jKsw53Bo9EwcXMxgxvsUQ95vUa8iqUUUwONfC+9cNNSlAnIMiC8iuQ5jSKrbrecePNFRVRFReaLjtRUVV/TdHI2Roc09Fi72Fh0VK+Hes7hpC6JMhnyXCOAvYY5zjsXHZ6sevspuJ5RLjTXUtY9IvYqvck/Kq1XithZorUl3Crvdz1GkRVz71/2oTfwVC6/wAWePZRWllLcQEMR7+qd9q19xC4gXVm2W64lAacVVNWm16geBqvNUVfDaiKvqqwmm2W7LbGYTUh1/ohxvePJmXtKtJvhXDjaes/TOCnn0hf1pYyqopVNP8AEIqnJykbO4qSciCpCAwfBaRRxUxiDpfzFTi635mHEOdJd2NtDuJcVVDjJxPl6rvpNtA6kCKqoy2ici+kv8uXYvPnVg7TqizDElRbvambtGfBUNtzrCQ/6a0jJ6HY3AxoTSyh6nofSl/qIaucN4FlE+PYbt3l8EPyNC64+HWbojzSI4U68bs2tIk+U2jbaL0buet1FznCYTGOXw7fdVtIupGJTDUuLIAk25ExWlfqXSfC/VVkfgx7QzprUBrmHLjkXmu/wFQUtraHy5dqYwKqnKkK3qXUuj7hItZyHmlZMmnG8oSbhXCivrwvPKL6lolm+HG5NzZoDyuahkN+WmeTJAn4q4t4vrU64lPei28ZBjsWQ3HRHVH3nUG4ncRoVhsbzbD4uTnAXowTnjknNfgi1XafxMv8wFbcmOCK8+qAoqfBcZT5VE59xm3OSqyHiMnFRF3F2+rK1UrcIyyztluv3ryUuZ6lBFyVBsqyPkvvG63PuTyrlwQab5JzQc5Xn49dM+7NM3V+np901DbL6ei4usbVGiyGSgOz2mMPEQ4Mt/VwgiXZSg4MXFq0aVbBC6I3HCVUx9JeX3IlMb/EyIGOn6tVbFaxFl3W2x7A7fppGYMRNPSY0HRIW40DapWlbA7Alk02RyDeCMy4RhGAyyLSEXWLanV3FS/8qK6x3dEQhMsTmH1JhU9HKJuVfeuUX5V11zxCPT8RgxjE+TyGQlnAqgLhc+FV91zq+5aquPTynSIcbRDHIUz4fHCKvZmv1h8JckyBuSjlbvevVDc3LWpQGAnci3+kNfPRzEHyFl9Vwhc9hLjl48lX7uzsSp43xFY0xwz1Bbm343nl3I2Y0WJJBwWWjxvJSDsVU3oiLnG71ItLrQPDiZqNsZkqaxbYCGiFIfQlTGOe0UTrL2eKInjTPjcH+FqMdFM1JqNHsftgjhs+KAvWX76cJMfW8Tm0lh9XIXYGh7CQOoVdTIjMjNVIiXKqvitWW8kaOsC3XOYSIqvqAp8kQ/8Aqpe8VuED+k7PFv8AabxDvdnkGjayI6EBMmqZEXWj6zSrhcZVffipVwLuoWewusOO8+k7fBcYVPwQqr8RxSWaDoou5VvhzHySXuVw7BWXKfuRS3ejVRbjZrhrDjDNhxZLrLLstxTXrbOqZDuRE7eQoniuVTwzhxXDWkdmG6Quju2UuuDlxYYvVyu7xbXnzUhz4Jn/APVKHD2Mt46OZ5b7xA0m+/inumjiHTrv9E/LGNj0XpoI7ShFiR0UnDL0i9Iq9NPa8sN/ccC03AHjb7yJUGuEQ9ZhFbjzrQYW+W1Kk2+fKKOExsVyrW/B97uV01tJuc7XFu1PIsVisAxI3mphb7oErph7yZQEDupuSq/9KzWYH2Z3HxFzlOrYr8u1JOONqjas4ZXGK42jkmFiXFJU5iqJg+fgKhnKeCoi+FUfdDo3CDKFtVUynYtXFe1RHMHWCdHa4BhVRL22wzdZDcZVVpC6ufhTXwpHagrmGx5dku8WY32R7H67rDqXaFh/rUeVOfe+K+H3fzxUUZFDeACLahEiKvqpk6Za6JhHMYUvHHLmqoq/jWlcOYr7ythh7BBcM0e0CQ+SkgP8u2uSkJ66xdi+uvIxX2q0/wDo6p6LRznpmt7LM85H111WSK8s1rzUA7crWBKuDLX/APVcJOEKMbed5AVKbiuWPoQt07KEWOa0ttaSfPLq5JcJTdMsqXr9dbS731FaJBMU5ff8OXP+/CojIeN9zea/Cs7z7KULxFWO9eaWc7njfjEel516xEFZAbkVUryrkSUSQk7UpcSs06IKa9unx4tuFUNMInv9dY9s1B003ozLkvZ7vw5f7UvSub6sdEmE5/L/ALVzaZixn1LOFVcoqr/fOios1i9gDNDzTkOLpwY2s6AJmajnuStLSbc4CONK4Lzar2tmmUXl4oqKqVBdOWrppuDFUTPLciZRMcvvzn91bKTexO3I2uETsJV7MeCp4/v8PFaztKRuiRxVRFISVF+OVSj33TTt5FkNd2262VWsWI8hbZK4dfNSlp5mG0gou2ve421+Dp283G63p61XSETSxrS5CNUnNGQgpi8i7OWS5c+4tL3Vl0djylbBFUl7FVeWMe78K32ndcXyHpp2wuzHf0VNFCKK8AmHLdhRQkVRwXPIqnYi9uMcr9elNY9lhOnA9z5olY4hkkd4EZ5A30WzO5vM22S0hr0MlrY8HgVaLTFybZy0ZomF/wB6w7tdxWKrYkiIvNVVeSJ2p/ae5Kig3B5DUiwqeime6nPknu5/2tV8vHSq2WNj97XdVJeITDYE0Y6pg6jvAFbuhbLmWU5rhE7Ofu5JivPSkzooZNGq5EsLheXjUAkTnnQ2ZURVMFz7a2VnuHQtCgr105Enj8vFf75J4j6zqkl0OeNMX5/qmd9rxz6aU7vdyBiCrzR4JOeMe9K5slw6eEjzirn3/GoRdrsrgIit9VU5Aq95Oz7uXh8sV7Wi7DGjI2u0wVOXNMouOxfFOfv9apRhjMY7IeEXe5rv8V2/quUz+Nry7KbzrijUVUReylXdOc91fWqL96JUiu98R5hea7cInYi8/HHLln8Me7lFXS3uEfPmuea5odnY6ccwbVOwheczT8kGh3khstjgkueSovJanVhv7LLaNiQGqJ4J4fdlO2oHRVbF5afGSGSHzQetafXdtqZD+rIqckcBPiqVr5Wq2+lUN4+vKc0+9E51B6KMzcaZOTs4BXJMxYet9L1G88ibRLK95OSfurVPTX3VyRInwSsaigNnJ27J3LISh8k8kn5iuSVSXJKqr764ooqguSKKKKiiKKKKiiKmGkLoLQJuJcouF8Vz8ah9dgIgLcBKK+tFxV7HX5KFgTx9wrFaw6B/OE55UzTFxsaQ7pYOlmNKnRTY0pWCwmURDDaSGqZXrcl5JzqAa5mNOusjEjRYQNtg0rUYNiEgouCLmqkS55kvPNaD9JTcY6dUT3IiVjvOuPHvdNTL3+FX8llK9sFzItOPcq5bvRzt91uiuCMyREIiVE7MrXWiigXdC0UUUVFEUUUVFFyqqS5VVVfWtcUUVFF//9k=" alt="Buffet Zureta" style="height:80px;width:auto;margin-bottom:16px;">
+        <p>Desde 2006 realizando sonhos e criando memórias inesquecíveis em Osasco e região. O buffet infantil premium de confiança da sua família.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/zuretabuffet" class="social-ico" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="http://facebook.com/buffetzureta" class="social-ico" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://wa.me/5511984622895" class="social-ico" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul><li><a href="#sobre">Sobre</a></li><li><a href="#atracoes">Atrações</a></li><li><a href="#estrutura">Estrutura</a></li><li><a href="#gastronomia">Cardápio</a></li><li><a href="#depoimentos">Depoimentos</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Eventos</h4>
+        <ul><li><a href="#contato">Aniversários</a></li><li><a href="#contato">Chá de Bebê</a></li><li><a href="#contato">Batizados</a></li><li><a href="#contato">Confraternizações</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul><li><a href="tel:1136818754">(11) 3681-8754</a></li><li><a href="https://wa.me/5511984622895" target="_blank">(11) 98462-2895</a></li><li><a href="#">Av. Lucianinho Melli, 78</a></li><li><a href="#">Osasco / SP</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-btm">
+      <p>Desenvolvido por Thiago Yanagimori</p>
+      <p>© 2026 Buffet Zureta · Todos os direitos reservados</p>
+      <p>Feito com cuidado para cada família</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5511984622895?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." class="wa-btn" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+</a>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('stuck', window.scrollY > 60), {passive:true});
+const hbg = document.getElementById('hbg');
+const mob = document.getElementById('mobMenu');
+hbg.addEventListener('click', () => mob.classList.toggle('open'));
+function closeMenu() { mob.classList.remove('open'); }
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+function submitForm() {
+  const f = document.querySelectorAll('.form-box input,.form-box select,.form-box textarea');
+  let txt = 'Olá! Gostaria de solicitar um orçamento:\n';
+  if(f[0].value) txt += '\n*Nome:* '+f[0].value;
+  if(f[1].value) txt += '\n*WhatsApp:* '+f[1].value;
+  if(f[2].value) txt += '\n*Data:* '+f[2].value;
+  if(f[3].value&&f[3].value!='') txt += '\n*Convidados:* '+f[3].value;
+  if(f[4].value&&f[4].value!='') txt += '\n*Tipo:* '+f[4].value;
+  if(f[5].value) txt += '\n*Mensagem:* '+f[5].value;
+  window.open('https://wa.me/5511984622895?text='+encodeURIComponent(txt),'_blank');
+}
+</script>
+</body>
+</html>
