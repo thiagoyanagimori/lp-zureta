@@ -248,11 +248,15 @@ h2.display em{font-style:italic;color:var(--clr-orange);}
   .footer-brand{grid-column:1/-1;}
 }
 @media(max-width:860px){
+  /* Regra global mobile — corrige o bug de html não herdar overflow-x do body */
+  html,body{width:100%;max-width:100%;overflow-x:hidden;}
   .hero{grid-template-columns:1fr;min-height:auto;}
-  .hero-left{max-width:100%;padding:64px 32px 48px;margin:0;}
-  .hero-right{height:400px;}
+  .hero-left{max-width:100%;width:100%;padding:64px 32px 48px;margin:0;}
+  .hero-right{height:400px;width:100%;overflow:hidden;}
+  .hero-trust{gap:20px;}
+  .body-lg{max-width:100%;}
   .sobre-grid,.contato-grid{grid-template-columns:1fr;gap:48px;}
-  .sobre-imgs{order:-1;}
+  .sobre-imgs{order:-1;width:100%;max-width:100%;}
   .gastro-grid{grid-template-columns:1fr 1fr;}
   .dep-grid{grid-template-columns:1fr;}
   .steps{grid-template-columns:1fr 1fr;}
@@ -267,13 +271,27 @@ h2.display em{font-style:italic;color:var(--clr-orange);}
 @media(max-width:560px){
   .container{padding:0 20px;}
   .sobre,.atracoes,.estrutura,.gastro,.dep,.como,.cta-blk,.contato{padding:80px 0;}
-  .hero-left{padding:60px 20px 40px;}
-  .hero-right{height:300px;}
-  .hero-btns,.cta-btns{flex-direction:column;}
-  .btn{justify-content:center;}
+  /* Hero */
+  .hero-left{padding:60px 20px 40px;width:100%;max-width:100%;}
+  .hero-right{height:280px;width:100%;overflow:hidden;}
+  .hero-btns,.cta-btns{flex-direction:column;width:100%;}
+  .btn{justify-content:center;width:100%;max-width:100%;}
+  .hero-trust{flex-direction:column;align-items:flex-start;gap:10px;}
+  .trust-divider{display:none;}
+  /* Sobre — estatísticas em 2 colunas e fonte menor para caber na tela */
+  .sobre-stats{grid-template-columns:1fr 1fr;}
+  .stat-num{font-size:26px;}
+  /* Números de depoimentos — 1 coluna para não cortar "+2.000" em 52px */
+  .nums-row{grid-template-columns:1fr;}
+  .num-block{border-right:none;border-bottom:1px solid var(--clr-line);}
+  .num-block:last-child{border-bottom:none;}
+  .num-block strong{font-size:40px;}
+  /* Grids */
   .gastro-grid{grid-template-columns:1fr;}
   .steps{grid-template-columns:1fr;}
   .est-grid{grid-template-columns:1fr;}
+  .atr-grid{grid-template-columns:1fr 1fr;}
+  /* Formulário e rodapé */
   .form-row2{grid-template-columns:1fr;}
   .form-box{padding:28px 22px;}
   .footer-top{grid-template-columns:1fr;}
